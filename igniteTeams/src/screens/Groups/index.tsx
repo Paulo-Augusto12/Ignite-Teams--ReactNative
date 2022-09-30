@@ -1,16 +1,15 @@
-import { StyleSheet , Text, View, Image } from 'react-native'
 
-import { 
-    Container 
+//Estilos
+import { Container } from './style'
 
-} from './style'
-
+//Componentes
+import { Header } from '@components/Header'
 
 export function Groups(){
 
     return(
         <Container>
-            
+            <Header  showBackButton/>
         </Container>
     )
 

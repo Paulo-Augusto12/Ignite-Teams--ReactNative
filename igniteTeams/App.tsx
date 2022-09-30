@@ -1,6 +1,6 @@
 //Importações do React Native
 
-import { ActivityIndicator } from 'react-native'
+import { StatusBar } from 'react-native';
 
 //Estilizações
 
@@ -11,19 +11,28 @@ import theme from '@theme/index'
 //Componentes
 
 import { Groups } from '@screens/Groups';
+import { Loading } from '@components/Loading';
+import { Header } from '@components/Header';
 
 
 
 
 export default function App() {
- 
+   
   const[ fontsLoaded ] = useFonts({ Roboto_400Regular , Roboto_700Bold });
  
 
   return( 
+   
       <ThemeProvider theme={theme}> 
+         <StatusBar 
+         barStyle="light-content"
+         backgroundColor="transparent"
+         translucent   
+         />
 
-         { fontsLoaded ?  <Groups /> : <ActivityIndicator /> }
+         { fontsLoaded ?  <Groups /> : <Loading /> }
+
       
       </ThemeProvider>
  )
