@@ -11,6 +11,7 @@ import theme from '@theme/index'
 //Componentes
 
 import { Groups } from '@screens/Groups';
+import {NewGroup} from '@screens/NewGroup'
 import { Loading } from '@components/Loading';
 import { Header } from '@components/Header';
 
@@ -31,7 +32,7 @@ export default function App() {
          translucent   
          />
 
-         { fontsLoaded ?  <Groups /> : <Loading /> }
+         { fontsLoaded ?  <NewGroup /> : <Loading /> }
 
       
       </ThemeProvider>
