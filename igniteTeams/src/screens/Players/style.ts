@@ -8,3 +8,15 @@ background-color: ${({theme})=> theme.COLORS.GRAY_600};
 padding:24px;
 
 `
+
+export const Form = styled.View` 
+
+width:100%;
+border-radius: 7px;
+
+background-color: ${({theme})=> theme.COLORS.GRAY_700};
+
+flex-direction: row;
+justify-content: center;
+
+`
