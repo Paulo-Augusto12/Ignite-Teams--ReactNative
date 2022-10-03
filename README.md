@@ -12,7 +12,9 @@ Aplicação para android feita com React Native. A aplicação tem como objetivo
 
 # ⚛️ Principais conceitos desenvolvidos no Projeto
 
-- `React Native` - Estruturação do projeto feita em Html
+- `React Native` - Estruturação do projeto feita utilizando o React Native
 - `Styled Components` - Estilização da página feita com css.
 - `Typescript` - Lógica e interatividade da página feita utilizando o superset Typescript 
+- `Expo` - Projeto desenvolvido utilizando o Expo para compilação do Código e visualização do Projeto
+- `Android Studio` - O Adroid Stuidio foi utilizado para visualização via emulador do projeto
 
