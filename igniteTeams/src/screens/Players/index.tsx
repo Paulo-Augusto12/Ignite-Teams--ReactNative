@@ -10,10 +10,13 @@ import { Container, Form, HeaderList, NumberOfPlayers } from './style'
 //Importações de componentes
 
 import { Header } from '@components/Header'
+import { EmptyList } from '@components/EmptyList'
 import { HightLight } from '@components/HighLight'
 import {ButtonIcon} from '@components/ButtonIcon'
 import { Input } from '@components/Input'
 import { Filter } from '@components/Filter'
+import { PlayerCard } from '@components/PlayerCard'
+import { Button } from '@components/Button'
 
 
 
@@ -25,7 +28,7 @@ type props = {
 export function Players(){
 
     const [team , setTeam] = useState('Time A')
-    const [numberOfPlayer, setNumberOfPlayers] = useState([])
+    const [players, setPlayers] = useState(['Loud', 'Red', 'Pain Gaming', 'INTZ', 'Furia', 'Miners', 'Los Grandes', 'Kabum'])
 
     return(
         <Container>
@@ -60,9 +63,36 @@ export function Players(){
                 horizontal
             />
             <NumberOfPlayers>
-                {numberOfPlayer.length}
+                {players.length}
             </NumberOfPlayers>
-        </HeaderList>       
+        </HeaderList>
+
+        <FlatList
+            data={players}
+            keyExtractor={item => item}
+            renderItem={({item})=> (
+                <PlayerCard 
+                    name={item}
+                    onRemove={()=>{}}
+                />
+            )}
+            ListEmptyComponent={()=>(
+                <EmptyList 
+                    message="Não há nenhum participante nesta equipe"
+                />
+            )}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={[
+                {paddingBottom:110,},
+                players.length === 0 && {flex:1}
+            ]}
+        />
+        
+        <Button 
+        title='Remover Turma'
+        type="SECONDARY"
+        />
+    
         </Container>
     )
 }
