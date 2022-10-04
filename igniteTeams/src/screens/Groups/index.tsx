@@ -1,6 +1,8 @@
 //Importações do React
 import { useState } from 'react'
 import { FlatList } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
 //Estilos
 import { Container } from './style'
@@ -12,12 +14,19 @@ import { GroupCard } from '@components/GroupCard'
 import {EmptyList} from '@components/EmptyList'
 import {Button} from '@components/Button'
 
+
+
 export function Groups(){
     const [groups , setGroups] = useState<string[]>([])
+    const navigation = useNavigation()
+    
+    function handleNewGroup(){
+        navigation.navigate('new')
+    }
 
     return(
         <Container>
-            <Header  showBackButton/>
+            <Header showBackButton />
 
             <HightLight 
                 title="Turmas"
@@ -44,6 +53,7 @@ export function Groups(){
             <Button 
                 title='Criar uma nova turma'
                 type={'PRIMARY'}
+                onPress={handleNewGroup}
             />
         </Container>
     )

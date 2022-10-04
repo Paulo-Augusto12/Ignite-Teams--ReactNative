@@ -16,6 +16,10 @@ import { Players } from '@screens/Players'
 import { Loading } from '@components/Loading';
 import { Header } from '@components/Header';
 
+//Rotas
+
+import { Routes } from './src/routes'
+
 
 
 
@@ -33,7 +37,7 @@ export default function App() {
          translucent   
          />
 
-         { fontsLoaded ?  <Players /> : <Loading /> }
+         { fontsLoaded ?  <Routes /> : <Loading /> }
 
       
       </ThemeProvider>
