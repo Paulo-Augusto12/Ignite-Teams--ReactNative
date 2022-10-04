@@ -1,5 +1,6 @@
 //Importações do React
-
+import { useState } from 'react'
+import { useNavigation, useRoute } from '@react-navigation/native'
 
 //Importação de Estilos
 import { Container, Content, Icon } from './style'
@@ -18,6 +19,13 @@ type props = {
 
 export function NewGroup({title}:props){
 
+    const navigation = useNavigation()
+    const [group, setGroup] = useState('')
+
+    function handleNavigatePlayers (){
+        navigation.navigate('players' , { group })
+    }
+
     return(
         <Container>
                 <Header showBackButton/>
@@ -32,9 +40,14 @@ export function NewGroup({title}:props){
 
                     <Input 
                     placeholder='Nome da turma'
+                    onChangeText={setGroup}
                     />
 
-                    <Button title="Criar" style={{marginTop:20}}/>
+                    <Button 
+                    title="Criar" 
+                    style={{marginTop:20}}
+                    onPress={handleNavigatePlayers}
+                    />
                 </Content>
         </Container>
     )

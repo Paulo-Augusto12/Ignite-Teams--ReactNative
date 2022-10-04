@@ -1,3 +1,5 @@
+//Importações do React
+import { useNavigation } from '@react-navigation/native'
 
 //Estilos
 
@@ -11,14 +13,22 @@ type props = {
     showBackButton?:boolean
 }
 
+
 export function Header({showBackButton = false}:props){
+
+    const Navigation = useNavigation()
+
+    function handleGoHome(){
+        Navigation.navigate('groups')
+    }
+
 
     return(
         <Container>
             
             { 
                 showBackButton && 
-            <BackButton>
+            <BackButton onPress={handleGoHome}>
                 <BackIcon />
             </BackButton>
             }

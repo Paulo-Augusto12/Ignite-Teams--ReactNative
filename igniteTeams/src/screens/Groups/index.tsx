@@ -1,7 +1,8 @@
 //Importações do React
 import { useState } from 'react'
 import { FlatList } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation,
+  } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
 //Estilos
@@ -20,13 +21,14 @@ export function Groups(){
     const [groups , setGroups] = useState<string[]>([])
     const navigation = useNavigation()
     
+
     function handleNewGroup(){
         navigation.navigate('new')
     }
 
     return(
         <Container>
-            <Header showBackButton />
+            <Header />
 
             <HightLight 
                 title="Turmas"

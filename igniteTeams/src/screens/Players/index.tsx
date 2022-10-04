@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { FlatList } from 'react-native'
+import { useRoute } from '@react-navigation/native'
 
 //Importações de estilos
 
@@ -20,8 +21,8 @@ import { Button } from '@components/Button'
 
 
 
-type props = {
-
+type RouteParams = {
+    group:string
 }
 
 
@@ -29,13 +30,16 @@ export function Players(){
 
     const [team , setTeam] = useState('Time A')
     const [players, setPlayers] = useState(['Loud', 'Red', 'Pain Gaming', 'INTZ', 'Furia', 'Miners', 'Los Grandes', 'Kabum'])
+    
+    const route = useRoute()
+    const { group } = route.params as RouteParams;
 
     return(
         <Container>
             <Header showBackButton />
 
             <HightLight 
-                title="Nome da turma"
+                title={group}
                 subtitle="Adicione mais membros e separe as equipes"
             />
             
@@ -68,7 +72,7 @@ export function Players(){
         </HeaderList>
 
         <FlatList
-            data={players}
+            data={[]}
             keyExtractor={item => item}
             renderItem={({item})=> (
                 <PlayerCard 
