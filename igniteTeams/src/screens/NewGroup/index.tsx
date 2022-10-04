@@ -1,6 +1,7 @@
 //Importações do React
 import { useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
+import { groupCreate } from '@storage/group/groupCreate'
 
 //Importação de Estilos
 import { Container, Content, Icon } from './style'
@@ -22,8 +23,17 @@ export function NewGroup({title}:props){
     const navigation = useNavigation()
     const [group, setGroup] = useState('')
 
-    function handleNavigatePlayers (){
+    async function handleNew (){
+        
+        try{
+            await groupCreate(group)
+        }
+        catch(error){
+            console.log(error)
+        }
+        
         navigation.navigate('players' , { group })
+    
     }
 
     return(
@@ -35,7 +45,7 @@ export function NewGroup({title}:props){
 
                     <HightLight 
                     title="Nova turma"
-                    subtitle="Crie uma turma para adicionar os membors"
+                    subtitle="Crie uma turma para adicionar os membros"
                     />
 
                     <Input 
@@ -46,7 +56,7 @@ export function NewGroup({title}:props){
                     <Button 
                     title="Criar" 
                     style={{marginTop:20}}
-                    onPress={handleNavigatePlayers}
+                    onPress={handleNew}
                     />
                 </Content>
         </Container>
