@@ -28,4 +28,4 @@ margin-left: 12px;
 export const Icon = styled(MaterialIcons).attrs<Props>(({theme, type})=>({
     size:24,
     color: type === 'PRIMARY' ? theme.COLORS.GREEN_500 : theme.COLORS.RED
-}))``
+}))``;

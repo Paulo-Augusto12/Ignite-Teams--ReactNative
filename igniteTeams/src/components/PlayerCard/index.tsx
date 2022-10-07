@@ -8,13 +8,13 @@ import { Container, Name, Icon } from './style'
 
 import { ButtonIcon } from '@components/ButtonIcon'
 
-type Props = {
+type props = {
     name:string
     onRemove: () => void
 }
 
 
-export function PlayerCard ({name, onRemove}:Props){
+export function PlayerCard ({name, onRemove}:props){
 
     return(
         <Container>
